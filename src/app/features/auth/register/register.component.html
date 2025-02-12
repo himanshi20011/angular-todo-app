@@ -1,0 +1,13 @@
+<div class="register-card">
+  <h1>Register</h1>
+  <form (ngSubmit)="onRegister()">
+    <input type="text" id="name" [(ngModel)]="name" placeholder="Full Name" required />
+    <input type="email" id="email" [(ngModel)]="email" name="email" required />
+    <input type="password" id="password" [(ngModel)]="password" name="password" required />
+    <input type="password" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" required />
+    <button type="submit">Register</button>
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+    <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
+  </form>
+  <a href="/login" class="link">Already have an account? Login here</a>
+</div>

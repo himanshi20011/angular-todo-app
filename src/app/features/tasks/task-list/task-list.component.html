@@ -1,0 +1,63 @@
+<!-- <div class="task-list"> -->
+  <!-- <h2>Task List</h2> -->
+
+  <!-- Priority Filter -->
+  <!-- <label for="priority-filter">Filter by Priority:</label>
+  <select id="priority-filter" [(ngModel)]="selectedPriority" (change)="filterTasks()">
+    <option value="All">All</option>
+    <option value="High">High</option>
+    <option value="Medium">Medium</option>
+    <option value="Low">Low</option>
+  </select> -->
+
+  <!-- Drag-and-Drop Task List -->
+  <!-- <ul cdkDropList (cdkDropListDropped)="drop($event)">
+    <li *ngFor="let task of filteredTasks" cdkDrag [class.completed]="task.completed">
+      <input type="checkbox" [checked]="task.completed" (change)="toggleCompletion(task.id)" />
+      <h3>{{ task.title }}</h3>
+      <p>Priority: {{ task.priority }}</p>
+      <p>Due Date: {{ task.dueDate | date }}</p>
+      <button (click)="deleteTask(task.id)">Delete</button>
+    </li>
+  </ul> -->
+
+  <!-- Navigate to Create Task -->
+  <!-- <button class="create-task-btn" (click)="navigateToTaskForm()">Create Task</button> -->
+<!-- </div> -->
+
+
+
+<div class="task-list-container">
+  <h2>Task List</h2>
+
+  <!-- Filter Dropdown -->
+  <div class="task-filters">
+    <label for="priority-filter"><strong>Filter by Priority:</strong></label>
+    <select id="priority-filter" [(ngModel)]="selectedPriority" (change)="filterTasks()">
+      <option value="All">All</option>
+      <option value="High">High</option>
+      <option value="Medium">Medium</option>
+      <option value="Low">Low</option>
+    </select>
+  </div>
+
+  <!-- Task Items -->
+  <div class="task-card" *ngFor="let task of filteredTasks">
+    <div class="task-info">
+      <h3>{{ task.title }}</h3>
+      <p><span class="task-priority {{ task.priority.toLowerCase() }}">{{ task.priority }}</span></p>
+      <p><strong>Due Date:</strong> {{ task.dueDate | date: 'MMM d, y' }}</p>
+    </div>
+
+    <button class="delete-btn" (click)="deleteTask(task.id)">Delete</button>
+    <!-- Task Actions -->
+    <div class="task-actions">
+      <input type="checkbox" [(ngModel)]="task.completed">
+     
+    </div>
+  </div>
+
+  <!-- Create Task Button -->
+  <button class="create-task-btn" (click)="navigateToTaskForm()">Create Task</button>
+</div>
+

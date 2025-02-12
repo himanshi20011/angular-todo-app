@@ -1,0 +1,12 @@
+<nav>
+  <ul>
+
+    <li *ngIf="!isLoggedIn"><a routerLink="/login" routerLinkActive="active">Login</a></li>
+    <li *ngIf="!isLoggedIn"><a routerLink="/register" routerLinkActive="active">Register</a></li>
+    <li *ngIf="isLoggedIn"><a routerLink="/tasks" routerLinkActive="active">Tasks</a></li>
+    <li *ngIf="isLoggedIn"><a routerLink="/tasks/create" routerLinkActive="active">Create Task</a></li>
+    <li *ngIf="isLoggedIn"><button (click)="logout()">Logout</button></li>
+  </ul>
+</nav>
+
+<router-outlet></router-outlet>
